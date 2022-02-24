@@ -1,9 +1,9 @@
 #Derek Aguirre
 
 #Please use the following command to run the program:
-# $python3 mapReduce.py
-#The program will prompt users to enter the amound of threads to run
-#Please enter a number up to 8 for that field and it will execute
+# $python3 MapReduceA2.py
+#The program will prompt users to enter the amount of threads to run.
+#Please enter a number up for that field and it will execute.
 
 import pymp
 import time
@@ -12,18 +12,11 @@ import re
 def main():
     thread_amount = input("Please enter thread amount (up to 8)\n>")
     results = {}
-    if(int(thread_amount) >= 8):
-        print("Executing the program with 8 threads")
-        start_h_coded = time.time()
-        results = map_reduce(8)
-        end_h_coded = time.time()
-        print(f'Total elapsed time { end_h_coded-start_h_coded:.2f} seconds')
-    else:
-        print("Executing the program with " + str(thread_amount) + " threads")
-        start_dynamic = time.time()
-        results = map_reduce(int(thread_amount))
-        end_dynamic = time.time()
-        print(f'Total elapsed time { end_dynamic-start_dynamic:.2f} seconds')
+    print("Executing the program with " + str(thread_amount) + " threads")
+    start_dynamic = time.time()
+    results = map_reduce(int(thread_amount))
+    end_dynamic = time.time()
+    print(f'Total elapsed time { end_dynamic-start_dynamic:.2f} seconds')
     print_dict(results)
 
 def load_files():
